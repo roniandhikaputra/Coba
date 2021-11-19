@@ -16,7 +16,7 @@ if($_POST){
         echo "<script>alert('password tidak boleh kosong');location.href='tambah_siswa.php';</script>";
     } else {
         include "koneksi.php";
-        $insert=mysqli_query($koneksi,"insert into siswa (nama_siswa,tanggal_lahir, gender, alamat, username, password, id_kelas) value ('".$nama_siswa."','".$tanggal_lahir."','".$gender."','".$alamat."','".$username."','".md5($password)."','".$id_kelas."')") or die(mysqli_error($conn));
+        $insert=mysqli_query($koneksi,"insert into siswa (nama_siswa,tanggal_lahir, gender, alamat, username, password, id_kelas) value ('".$nama_siswa."','".$tanggal_lahir."','".$gender."','".$alamat."','".$username."','".md5($password)."','".$id_kelas."')") or die(mysqli_error($koneksi));
         if($insert){
             echo "<script>alert('Sukses menambahkan siswa');location.href='tampil_siswa.php';</script>";
         } else {
